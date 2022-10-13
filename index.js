@@ -8,6 +8,8 @@ const client = new Client({ intents: [
     ]
 });
 
+require('dotenv').config();
+
 const fs = require('fs');
 const events = fs.readdirSync('./src/events').filter(file => file.endsWith('.js'));
 

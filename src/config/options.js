@@ -1,6 +1,6 @@
 module.exports = {
     option: {
-        prefix: 'e!',
+        prefix: '-',
         color: '454970'
     },
     id: {
