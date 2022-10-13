@@ -31,7 +31,7 @@ for (const file of events) {
     client.on(file.split(".")[0], event.bind(null, client));
 };
 
-client.config = require('./src/config/bot');
+client.config = require('./src/config/options');
 config = client.config ;
 option = config.option ;
 salon = config.salon ;
