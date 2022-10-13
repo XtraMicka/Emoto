@@ -6,7 +6,7 @@ module.exports = {
     async execute(client, message, args) {
         message.delete();
 
-        if (message.author.id !== id.dev) return ;
+        if (message.author.id !== client.config.id.dev) return ;
         
         console.log();
     }
