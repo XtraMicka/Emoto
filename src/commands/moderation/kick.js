@@ -1,10 +1,10 @@
 const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
-    name: 'ban',
+    name: 'kick',
 
     async execute(client, message, args) {
-        if (!message.member.permissions.has("BAN_MEMBERS")) return ;
+        if (!message.member.permissions.has("KICK_MEMBERS")) return ;
 
         var salon = message.channel ;
 
@@ -13,11 +13,11 @@ module.exports = {
             .setColor(option.color);
 
         var Error2 = new EmbedBuilder()
-            .setDescription(`${emote.error} ⠂You can't ban me !`)
+            .setDescription(`${emote.error} ⠂You can't kick me !`)
             .setColor(option.color);
 
         var Error3 = new EmbedBuilder()
-            .setDescription(`${emote.error} ⠂You can't ban yourself !`)
+            .setDescription(`${emote.error} ⠂You can't kick yourself !`)
             .setColor(option.color);
 
         var Error4 = new EmbedBuilder()
@@ -32,12 +32,12 @@ module.exports = {
         if (message.author.id === target.id) return salon.send({ embeds: [Error3] });
         if (message.member.roles.highest.comparePositionTo(message.guild.members.cache.get(target.id).roles.highest) <= 0 ) return salon.send({ embeds: [Error4] });
 
-        message.guild.members.cache.get(target.id).ban();
-    
-        var Ban = new EmbedBuilder()
-            .setDescription(`${emote.ban} ⠂Member banned: **${target.username}#${target.discriminator} [${target.id}]** !`)
-            .setColor(option.color);
+        message.guild.members.cache.get(target.id).kick();
 
-        salon.send({ embeds: [Ban] });
+        var Kick = new EmbedBuilder()
+            .setDescription(`${emote.kick} ⠂Member kicked; **${target.username}#${target.discriminator} [${target.id}]** !`)
+            .setColor(option.color);
+    
+        salon.send({ embeds: [Kick] });
     },
 };
